@@ -19,7 +19,7 @@ import java.util.Date;
 public class Reviews {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
+    @Column(name = "nid", nullable = false)
     private Integer id;
     private Integer idMovie;
     private String assessment;

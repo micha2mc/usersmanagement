@@ -45,6 +45,6 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void actualizarUsuario(User usuario) {
-
+        userRepository.save(usuario);
     }
 }

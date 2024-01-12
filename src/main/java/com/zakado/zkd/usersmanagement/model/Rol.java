@@ -1,10 +1,14 @@
 package com.zakado.zkd.usersmanagement.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -18,5 +22,9 @@ public class Rol {
     @Column(name = "nid", nullable = false)
     private Integer id;
     private String authority;
+
+    @ManyToMany(mappedBy = "roles", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @JsonIgnoreProperties("roles")
+    private Set<User> userEntities = new HashSet<>();
 
 }
