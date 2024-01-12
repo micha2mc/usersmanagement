@@ -2,6 +2,7 @@ package com.zakado.zkd.usersmanagement.service.impl;
 
 import com.zakado.zkd.usersmanagement.dao.ReviewsDAO;
 import com.zakado.zkd.usersmanagement.model.Reviews;
+import com.zakado.zkd.usersmanagement.service.CriticasService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,5 +26,10 @@ public class CriticasServiceImpl implements CriticasService {
     @Override
     public Reviews buscarCriticasPorId(Integer idCrit) {
         return reviewsDAO.buscarCriticaPorId(idCrit);
+    }
+
+    @Override
+    public void guardarCritica(Reviews critica) {
+        reviewsDAO.guardarCritica(critica);
     }
 }

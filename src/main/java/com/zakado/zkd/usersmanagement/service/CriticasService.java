@@ -1,4 +1,4 @@
-package com.zakado.zkd.usersmanagement.service.impl;
+package com.zakado.zkd.usersmanagement.service;
 
 import com.zakado.zkd.usersmanagement.model.Reviews;
 
@@ -10,4 +10,6 @@ public interface CriticasService {
     List<Reviews> buscarCriticasPorIdPelicula(Integer idPel);
 
     Reviews buscarCriticasPorId(Integer idMatricula);
+
+    void guardarCritica(Reviews critica);
 }

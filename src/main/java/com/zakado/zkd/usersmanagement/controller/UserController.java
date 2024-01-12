@@ -1,0 +1,51 @@
+package com.zakado.zkd.usersmanagement.controller;
+
+import com.zakado.zkd.usersmanagement.model.User;
+import com.zakado.zkd.usersmanagement.service.UserService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/users")
+@RequiredArgsConstructor
+public class UserController {
+
+    private final UserService userService;
+
+    @GetMapping
+    public List<User> buscarTodos() {
+        return userService.buscarTodos();
+    }
+
+    @GetMapping("/{id}")
+    public User buscarUsuarioPorId(@PathVariable("id") Integer id) {
+        return userService.buscarUsuarioPorId(id);
+    }
+
+    @GetMapping("/correo/{correo}")
+    public User buscarUsuarioPorCorreo(@PathVariable("correo") String correo) {
+        return userService.buscarUsuarioPorCorreo(correo);
+    }
+
+    @GetMapping("/nombre/{nombre}")
+    public User buscarUsuarioPorNombre(@PathVariable("nombre") String nombre) {
+        return userService.buscarUsuarioPorNombre(nombre);
+    }
+
+    @PostMapping
+    public void guardarUsuario(@RequestBody User usuario) {
+        userService.guardarUsuario(usuario);
+    }
+
+    @PutMapping
+    public void actualizarUsuario(@RequestBody User usuario) {
+        userService.actualizarUsuario(usuario);
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminarUsuario(@PathVariable("id") Integer id) {
+        userService.eliminarUsuario(id);
+    }
+}
