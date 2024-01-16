@@ -20,4 +20,6 @@ public interface UserService {
     void actualizarUsuario(User usuario);
 
     void eliminarCritica(Integer idUsuario, Integer idMatricula);
+
+    User buscarUsuarioPorCorreoClave(String correo, String clave);
 }

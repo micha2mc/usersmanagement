@@ -47,4 +47,9 @@ public class UserDAOImpl implements UserDAO {
     public void actualizarUsuario(User usuario) {
         userRepository.save(usuario);
     }
+
+    @Override
+    public User buscarUsuarioPorCorreoClave(String correo, String clave) {
+        return userRepository.findByEmailAndPassword(correo, clave);
+    }
 }

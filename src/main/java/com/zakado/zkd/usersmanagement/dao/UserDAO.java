@@ -12,4 +12,5 @@ public interface UserDAO {
     void guardarUsuario(User usuario);
     void eliminarUsuario(Integer idUsuario);
     void actualizarUsuario(User usuario);
+    User buscarUsuarioPorCorreoClave(String correo, String clave);
 }

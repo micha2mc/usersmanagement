@@ -34,6 +34,11 @@ public class UserController {
         return userService.buscarUsuarioPorNombre(nombre);
     }
 
+    @GetMapping("/login/{correo}/{clave}")
+    public User buscarUsuarioPorCorreoConClave(@PathVariable("correo") String correo, @PathVariable("clave") String clave) {
+        return userService.buscarUsuarioPorCorreoClave(correo, clave);
+    }
+
     @PostMapping
     public void guardarUsuario(@RequestBody User usuario) {
         userService.guardarUsuario(usuario);

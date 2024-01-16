@@ -60,4 +60,9 @@ public class UserServiceImpl implements UserService {
         }
         reviewsDAO.eliminarCritica(idCrit);
     }
+
+    @Override
+    public User buscarUsuarioPorCorreoClave(String correo, String clave) {
+        return userDAO.buscarUsuarioPorCorreoClave(correo, clave);
+    }
 }
