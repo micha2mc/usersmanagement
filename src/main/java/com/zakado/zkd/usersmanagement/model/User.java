@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,7 +25,7 @@ public class User {
     private Boolean enable = false;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Reviews> reviews;
+    private Set<Reviews> reviews = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_has_authorities",
@@ -43,6 +42,16 @@ public class User {
     public void removeReviews(Reviews review) {
         if (review != null) {
             getReviews().remove(review);
+        }
+    }
+
+    public void addRol(Rol rol) {
+        getRoles().add(rol);
+    }
+
+    public void removeRol(Rol rol) {
+        if (rol != null) {
+            getRoles().remove(rol);
         }
     }
 

@@ -2,9 +2,12 @@ package com.zakado.zkd.usersmanagement.service.impl;
 
 import com.zakado.zkd.usersmanagement.dao.ReviewsDAO;
 import com.zakado.zkd.usersmanagement.dao.UserDAO;
+import com.zakado.zkd.usersmanagement.model.Reviews;
+import com.zakado.zkd.usersmanagement.model.Rol;
 import com.zakado.zkd.usersmanagement.model.User;
 import com.zakado.zkd.usersmanagement.service.UserService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +15,7 @@ import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UserServiceImpl implements UserService {
 
     private final UserDAO userDAO;
@@ -49,13 +53,21 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void actualizarUsuario(User usuario) {
-        userDAO.actualizarUsuario(usuario);
+        User user = userDAO.buscarUsuarioPorId(usuario.getId());
+        if (Objects.nonNull(user)) {
+            userDAO.guardarUsuario(getDataToUpdateUser(usuario, user));
+            log.info("Actualizada la película con ID {}", user.getId());
+        } else {
+            throw new RuntimeException("No existe usuario para actualizar");
+        }
     }
+
+
 
     @Override
     public void eliminarCritica(Integer idUsuario, Integer idCrit) {
         User user = userDAO.buscarUsuarioPorId(idUsuario);
-        if(Objects.nonNull(user)){
+        if (Objects.nonNull(user)) {
             user.removeReviews(reviewsDAO.buscarCriticaPorId(idCrit));
         }
         reviewsDAO.eliminarCritica(idCrit);
@@ -64,5 +76,27 @@ public class UserServiceImpl implements UserService {
     @Override
     public User buscarUsuarioPorCorreoClave(String correo, String clave) {
         return userDAO.buscarUsuarioPorCorreoClave(correo, clave);
+    }
+
+    private User getDataToUpdateUser(User usuario, User user) {
+        user.setUsername(usuario.getUsername());
+        user.setPassword(usuario.getPassword());
+        user.setEmail(usuario.getEmail());
+        user.setEnable(usuario.getEnable());
+        setRolesAndReviews(usuario, user);
+        return user;
+    }
+
+    private void setRolesAndReviews(User usuario, User user) {
+        if (Objects.nonNull(usuario.getRoles()) && !usuario.getRoles().isEmpty()) {
+            for (Rol rol : usuario.getRoles()) {
+                user.addRol(rol);
+            }
+        }
+        if (Objects.nonNull(usuario.getReviews()) && !usuario.getReviews().isEmpty()) {
+            for (Reviews reviews : usuario.getReviews()) {
+                user.addReviews(reviews);
+            }
+        }
     }
 }
