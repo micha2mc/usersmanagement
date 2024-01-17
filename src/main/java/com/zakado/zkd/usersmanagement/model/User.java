@@ -28,7 +28,7 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Reviews> reviews;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_has_authorities",
             joinColumns = {@JoinColumn(name = "id_user_fk", referencedColumnName = "nid")},
             inverseJoinColumns = {@JoinColumn(name = "id_authorities_fk", referencedColumnName = "nid")})

@@ -30,7 +30,7 @@ public class CriticasController {
     }
 
     @PostMapping
-    public void guardarMatricula(@RequestBody Reviews critica) {
+    public void guardarCritica(@RequestBody Reviews critica) {
         criticasService.guardarCritica(critica);
     }
 }

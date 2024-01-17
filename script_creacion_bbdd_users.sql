@@ -19,7 +19,7 @@ CREATE TABLE `users` (
 DROP TABLE IF EXISTS `usersdb`.`authorities`;
 CREATE TABLE `authorities` (
     `nid` INT NOT NULL AUTO_INCREMENT,
-    `authority` VARCHAR(45) NOT NULL,
+    `authority` VARCHAR(45) NOT NULL UNIQUE,
     PRIMARY KEY (`nid`)
 ) ENGINE = InnoDB;
 
