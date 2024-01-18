@@ -3,6 +3,8 @@ package com.zakado.zkd.usersmanagement.controller;
 import com.zakado.zkd.usersmanagement.model.Reviews;
 import com.zakado.zkd.usersmanagement.service.CriticasService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,7 +32,12 @@ public class CriticasController {
     }
 
     @PostMapping
-    public void guardarCritica(@RequestBody Reviews critica) {
-        criticasService.guardarCritica(critica);
+    public ResponseEntity<Reviews> guardarCritica(@RequestBody Reviews critica) {
+        Reviews reviews = criticasService.guardarCritica(critica);
+        return new ResponseEntity<>(reviews, HttpStatus.CREATED);
+    }
+    @PutMapping
+    public void actualizarCritica(@RequestBody Reviews critica) {
+        criticasService.actualizarCritica(critica);
     }
 }

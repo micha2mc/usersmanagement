@@ -11,7 +11,7 @@ public interface ReviewsDAO {
 
     Reviews buscarCriticaPorId(Integer idReview);
 
-    void guardarCritica(Reviews critica);
+    Reviews guardarCritica(Reviews critica);
 
     void eliminarCritica(Integer idCritica);
 }

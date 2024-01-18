@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class ReviewsDAOImpl implements ReviewsDAO {
 
-    private ReviewsRepository reviewsRepository;
+    private final ReviewsRepository reviewsRepository;
 
     @Override
     public List<Reviews> buscarTodas() {
@@ -30,8 +30,8 @@ public class ReviewsDAOImpl implements ReviewsDAO {
     }
 
     @Override
-    public void guardarCritica(Reviews critica) {
-        reviewsRepository.save(critica);
+    public Reviews guardarCritica(Reviews critica) {
+        return reviewsRepository.save(critica);
     }
 
     @Override

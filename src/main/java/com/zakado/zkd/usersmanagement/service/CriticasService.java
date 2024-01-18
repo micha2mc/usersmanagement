@@ -11,5 +11,6 @@ public interface CriticasService {
 
     Reviews buscarCriticasPorId(Integer idMatricula);
 
-    void guardarCritica(Reviews critica);
+    Reviews guardarCritica(Reviews critica);
+    void actualizarCritica(Reviews reviews);
 }

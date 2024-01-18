@@ -28,7 +28,7 @@ CREATE TABLE `reviews` (
 	`nid` INT NOT NULL AUTO_INCREMENT,
 	`idMovie` INT NOT NULL,
 	`assessment` text,
-    `note` INT NOT NULL,
+    `note` INT ,
     `date` DATE NOT NULL,
     `id_user` INT NOT NULL,
 	PRIMARY KEY (`nid`, id_user),

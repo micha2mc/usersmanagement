@@ -29,7 +29,12 @@ public class CriticasServiceImpl implements CriticasService {
     }
 
     @Override
-    public void guardarCritica(Reviews critica) {
-        reviewsDAO.guardarCritica(critica);
+    public Reviews guardarCritica(Reviews critica) {
+        return reviewsDAO.guardarCritica(critica);
+    }
+
+    @Override
+    public void actualizarCritica(Reviews reviews) {
+        reviewsDAO.guardarCritica(reviews);
     }
 }
