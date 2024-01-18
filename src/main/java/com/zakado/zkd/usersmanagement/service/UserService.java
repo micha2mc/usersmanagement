@@ -10,6 +10,7 @@ public interface UserService {
     User buscarUsuarioPorId(Integer idUsuario);
 
     User buscarUsuarioPorNombre(String nombre);
+    List<User> buscarVariosPorNombre(String nombre);
 
     User buscarUsuarioPorCorreo(String correo);
 

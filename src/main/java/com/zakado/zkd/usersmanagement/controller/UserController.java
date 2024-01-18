@@ -33,6 +33,10 @@ public class UserController {
     public User buscarUsuarioPorNombre(@PathVariable("nombre") String nombre) {
         return userService.buscarUsuarioPorNombre(nombre);
     }
+    @GetMapping("/search/{nombre}")
+    public List<User> buscarVariosPorNombre(@PathVariable("nombre") String nombre) {
+        return userService.buscarVariosPorNombre(nombre);
+    }
 
     @GetMapping("/login/{correo}/{clave}")
     public User buscarUsuarioPorCorreoConClave(@PathVariable("correo") String correo, @PathVariable("clave") String clave) {

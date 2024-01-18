@@ -29,6 +29,11 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public List<User> buscarVariosPorNombre(String nombre) {
+        return userRepository.findByUsernameContainingIgnoreCase(nombre);
+    }
+
+    @Override
     public User buscarUsuarioPorCorreo(String correo) {
         return userRepository.findByEmail(correo);
     }

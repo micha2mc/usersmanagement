@@ -37,6 +37,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> buscarVariosPorNombre(String nombre) {
+        return userDAO.buscarVariosPorNombre(nombre);
+    }
+
+    @Override
     public User buscarUsuarioPorCorreo(String correo) {
         return userDAO.buscarUsuarioPorCorreo(correo);
     }
