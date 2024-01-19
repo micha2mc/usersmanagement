@@ -13,4 +13,6 @@ public interface CriticasService {
 
     Reviews guardarCritica(Reviews critica);
     void actualizarCritica(Reviews reviews);
+
+    void eliminarCritica(Integer id);
 }

@@ -40,4 +40,9 @@ public class CriticasController {
     public void actualizarCritica(@RequestBody Reviews critica) {
         criticasService.actualizarCritica(critica);
     }
+
+    @DeleteMapping("/{id}")
+    public void eliminarCritica(@PathVariable("id") Integer id){
+        criticasService.eliminarCritica(id);
+    }
 }

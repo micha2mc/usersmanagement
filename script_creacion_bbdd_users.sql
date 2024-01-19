@@ -59,5 +59,12 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
+INSERT INTO usersdb.authorities (authority) VALUES ('ROLE_ADMIN');
+INSERT INTO usersdb.authorities (authority) VALUES ('ROLE_USER');
+
+INSERT INTO `usersdb`.`users` (username, password, email, enable) VALUES ('Admin', '12345', 'micha2mc@gmail.com', 1);
+INSERT INTO `usersdb`.`users_has_authorities` VALUES (1, 1);
+
+
 
 

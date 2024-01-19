@@ -37,4 +37,9 @@ public class CriticasServiceImpl implements CriticasService {
     public void actualizarCritica(Reviews reviews) {
         reviewsDAO.guardarCritica(reviews);
     }
+
+    @Override
+    public void eliminarCritica(Integer id) {
+        reviewsDAO.eliminarCritica(id);
+    }
 }
