@@ -67,8 +67,6 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-
-
     @Override
     public void eliminarCritica(Integer idUsuario, Integer idCrit) {
         User user = userDAO.buscarUsuarioPorId(idUsuario);
