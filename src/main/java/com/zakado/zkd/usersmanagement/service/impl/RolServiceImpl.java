@@ -1,5 +1,6 @@
 package com.zakado.zkd.usersmanagement.service.impl;
 
+
 import com.zakado.zkd.usersmanagement.dao.RolDAO;
 import com.zakado.zkd.usersmanagement.model.Rol;
 import com.zakado.zkd.usersmanagement.service.RolService;
@@ -13,6 +14,7 @@ import java.util.List;
 public class RolServiceImpl implements RolService {
 
     private final RolDAO rolDAO;
+
     @Override
     public List<Rol> buscarTodos() {
         return rolDAO.buscarTodos();

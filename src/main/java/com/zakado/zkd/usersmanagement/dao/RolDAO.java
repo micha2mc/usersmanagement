@@ -1,5 +1,6 @@
 package com.zakado.zkd.usersmanagement.dao;
 
+
 import com.zakado.zkd.usersmanagement.model.Rol;
 
 import java.util.List;

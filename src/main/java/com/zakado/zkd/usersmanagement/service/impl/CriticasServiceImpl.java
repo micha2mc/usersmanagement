@@ -1,5 +1,6 @@
 package com.zakado.zkd.usersmanagement.service.impl;
 
+
 import com.zakado.zkd.usersmanagement.dao.ReviewsDAO;
 import com.zakado.zkd.usersmanagement.model.Reviews;
 import com.zakado.zkd.usersmanagement.service.CriticasService;
@@ -13,6 +14,7 @@ import java.util.List;
 public class CriticasServiceImpl implements CriticasService {
 
     private final ReviewsDAO reviewsDAO;
+
     @Override
     public List<Reviews> buscarTodas() {
         return reviewsDAO.buscarTodas();

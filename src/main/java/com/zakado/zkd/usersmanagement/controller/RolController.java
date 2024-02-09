@@ -1,6 +1,6 @@
 package com.zakado.zkd.usersmanagement.controller;
 
-import com.zakado.zkd.usersmanagement.model.Reviews;
+
 import com.zakado.zkd.usersmanagement.model.Rol;
 import com.zakado.zkd.usersmanagement.service.RolService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +16,7 @@ import java.util.List;
 public class RolController {
 
     private final RolService rolService;
+
     @GetMapping
     public ResponseEntity<List<Rol>> searchAllMovies() {
         List<Rol> roles = rolService.buscarTodos();

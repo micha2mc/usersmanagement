@@ -1,5 +1,6 @@
 package com.zakado.zkd.usersmanagement.dao.repository;
 
+
 import com.zakado.zkd.usersmanagement.model.Reviews;
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,5 +1,6 @@
 package com.zakado.zkd.usersmanagement.dao.impl;
 
+
 import com.zakado.zkd.usersmanagement.dao.RolDAO;
 import com.zakado.zkd.usersmanagement.dao.repository.RolRepository;
 import com.zakado.zkd.usersmanagement.model.Rol;
@@ -13,6 +14,7 @@ import java.util.List;
 public class RolDAOImpl implements RolDAO {
 
     private final RolRepository rolRepository;
+
     @Override
     public List<Rol> buscarTodos() {
         return rolRepository.findAll();

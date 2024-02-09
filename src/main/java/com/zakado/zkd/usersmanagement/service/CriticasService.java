@@ -1,5 +1,6 @@
 package com.zakado.zkd.usersmanagement.service;
 
+
 import com.zakado.zkd.usersmanagement.model.Reviews;
 
 import java.util.List;
@@ -12,6 +13,7 @@ public interface CriticasService {
     Reviews buscarCriticasPorId(Integer idMatricula);
 
     Reviews guardarCritica(Reviews critica);
+
     void actualizarCritica(Reviews reviews);
 
     void eliminarCritica(Integer id);

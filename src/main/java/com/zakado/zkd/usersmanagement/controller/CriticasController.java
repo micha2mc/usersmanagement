@@ -36,13 +36,14 @@ public class CriticasController {
         Reviews reviews = criticasService.guardarCritica(critica);
         return new ResponseEntity<>(reviews, HttpStatus.CREATED);
     }
+
     @PutMapping
     public void actualizarCritica(@RequestBody Reviews critica) {
         criticasService.actualizarCritica(critica);
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarCritica(@PathVariable("id") Integer id){
+    public void eliminarCritica(@PathVariable("id") Integer id) {
         criticasService.eliminarCritica(id);
     }
 }

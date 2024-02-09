@@ -1,5 +1,6 @@
 package com.zakado.zkd.usersmanagement.controller;
 
+
 import com.zakado.zkd.usersmanagement.model.User;
 import com.zakado.zkd.usersmanagement.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,7 @@ public class UserController {
     public User buscarUsuarioPorNombre(@PathVariable("nombre") String nombre) {
         return userService.buscarUsuarioPorNombre(nombre);
     }
+
     @GetMapping("/search/{nombre}")
     public List<User> buscarVariosPorNombre(@PathVariable("nombre") String nombre) {
         return userService.buscarVariosPorNombre(nombre);
